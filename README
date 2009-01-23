@@ -1,4 +1,8 @@
-Still sketching. The TfL and Postcoder classes are functional screenscrapers but there's no app GUI yet. For some reason the Postcoder only returns results about 75% of the time.
+This app is a wrapper for Transport For London's routeplanner, designed to save typing by using the GPS (and probably some stored favourites).
+
+When it is finished, it'll consult the GPS and then ask you for your destination, then grab the routes by screenscraping TfL's site at http://www.tflwap.gov.uk and present them nicely. TfL can't take a lat/lng as a departure place, so it has to use an API to translate the GPS reading to a postcode. It then walks through the tflwap forms submitting the right things.
+
+So far I'm still sketching. The TfL and Postcoder classes are functional screenscrapers but there's no GUI yet. For some reason the Postcoder only returns results about 75% of the time. I'd love a better lat/lng -> UK Postcode API.
 
 Uses these nice external libraries and helpers:
 
