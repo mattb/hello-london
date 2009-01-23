@@ -1,0 +1,7 @@
+Still sketching. The TfL and Postcoder classes are functional screenscrapers but there's no app GUI yet. For some reason the Postcoder only returns results about 75% of the time.
+
+Uses these nice external libraries and helpers:
+
+* http://cocoawithlove.com/2008/10/using-libxml2-for-parsing-and-xpath.html for libxml2 HTML XPath support
+* http://code.google.com/p/google-toolbox-for-mac/ for GTMHTTPFetcher
+* http://regexkit.sourceforge.net/RegexKitLite/ for regular expressions
