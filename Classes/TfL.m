@@ -5,6 +5,8 @@
 //  Created by Matt Biddulph on 22/01/2009.
 //  Copyright 2009 Hackdiary Ltd. All rights reserved.
 //
+//
+//  A screenscraper for the TfL WAP site at http://www.tflwap.gov.uk
 
 #import "TfL.h"
 #import "NSString+URLEncoding.h"
