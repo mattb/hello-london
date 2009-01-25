@@ -59,17 +59,17 @@
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO; 
 	NSString *xpath = @"//a[starts-with(@href,'/planner/details')]";
 	NSArray *detailNodes = PerformHTMLXPathQuery(retrievedData, xpath);
-	routes = [NSMutableArray array];
+	self.routes = [NSMutableArray array];
 	for (NSDictionary *d in detailNodes) {
 		NSDictionary *route = [NSMutableDictionary dictionary];
 		NSString *content = [d objectForKey:@"nodeContent"];
-		NSString *href;
+		NSString *href=nil;
 		for (NSDictionary *attr in [d objectForKey:@"nodeAttributeArray"]) {
 			href = [attr objectForKey:@"nodeContent"];
 		}
 		NSArray *details = [[content stringByReplacingOccurrencesOfRegex:@"[^0-9]*([0-9]+)[^0-9]*" 
 													   withString:@"$1-"] componentsSeparatedByRegex:@"-"];
-		if([details count] >= 3) {
+		if(href != nil && [details count] >= 3) {
 			[route setValue:[details objectAtIndex:0] forKey:@"leave"];
 			[route setValue:[details objectAtIndex:1] forKey:@"arrive"];
 			[route setValue:[details objectAtIndex:2] forKey:@"stops"];
@@ -86,5 +86,11 @@
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO; 
 }
 
+- (void)dealloc {
+	[routes release];
+	[to release];
+	[from release];
+	[super dealloc];
+}
 
 @end

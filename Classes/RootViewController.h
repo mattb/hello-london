@@ -11,6 +11,7 @@
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import "TfL.h"
+#import "Postcoder.h"
 
 @interface RootViewController : UIViewController <CLLocationManagerDelegate,ABPeoplePickerNavigationControllerDelegate> {
 	IBOutlet UILabel *latitudeLabel;
@@ -21,6 +22,7 @@
 	IBOutlet UITextField *homePostcodeText;
 	CLLocationManager *locationManager;
 	TfL *tfl;
+	Postcoder *postcoder;
 }
 
 @property (nonatomic,retain) CLLocationManager *locationManager;

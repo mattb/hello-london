@@ -23,6 +23,7 @@
 @interface Postcoder : NSObject {
 	id delegate;
 	SEL success;
+	FMDatabase *db;
 }
 
 - (NSString *)findPostcodeForLat:(NSNumber *)lat andLong:(NSNumber *)lng;

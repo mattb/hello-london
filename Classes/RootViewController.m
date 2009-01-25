@@ -8,8 +8,6 @@
 
 #import "RootViewController.h"
 #import "Hello_LondonAppDelegate.h"
-#import "Postcoder.h"
-#import "TfL.h"
 #import "GTMHTTPFetcher.h"
 #import "RegexKitLite.h"
 
@@ -20,16 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.locationManager = [[[CLLocationManager alloc] init] autorelease]; 
+	self.locationManager = [[CLLocationManager alloc] init]; 
 	self.locationManager.delegate = self;
 	self.locationManager.distanceFilter = 100.0f;
 	[self.locationManager startUpdatingLocation];
+	
 	tfl = [[TfL alloc] init];
+	postcoder = [[Postcoder alloc] init];
+	
 	NSString *homePostcode = [[NSUserDefaults standardUserDefaults] stringForKey:@"homePostcode"];
 	if(!homePostcode) {
 		homePostcode = @"E8 1PE";
 	}
 	homePostcodeText.text = homePostcode;
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -84,8 +86,8 @@
 			homePostcodeText.text = postcode;
 			CFRelease(dict);
 		}
-		CFRelease(streets);
 	}
+	CFRelease(streets);
 
     return NO;
 }
@@ -100,7 +102,7 @@
 - (void)locationManager:(CLLocationManager *)manager 
 	didUpdateToLocation:(CLLocation *)newLocation 
 		   fromLocation:(CLLocation *)oldLocation { 
-	Postcoder *postcoder = [[Postcoder alloc] init];
+	
 	NSString *postcode = [postcoder findPostcodeForLat:[NSNumber numberWithDouble:newLocation.coordinate.latitude] andLong:[NSNumber numberWithDouble:newLocation.coordinate.longitude]];
 	
 	latitudeLabel.text = [NSString stringWithFormat:@"Latitude: %3.5f", 
@@ -123,7 +125,9 @@
 	
 	NSDictionary *route = [tfl.routes objectAtIndex:0];
 	NSURL *url = [ [ NSURL alloc ] initWithString: [route objectForKey:@"url"]];
+	[route release];
 	[[UIApplication sharedApplication] openURL:url];
+	[url release];
 }
 
 /*
@@ -162,6 +166,8 @@
 
 - (void)dealloc {
 	[tfl release];
+	[postcoder release];
+	[locationManager release];
     [super dealloc];
 }
 

@@ -21,7 +21,7 @@
 
 - (void)planRouteFrom:(NSString *)fromPostcode to:(NSString *)toPostcode withDelegate:(id)successDelegate didSucceedSelector:(SEL)sel;
 
-@property (nonatomic, readonly) NSArray *routes;
+@property (nonatomic, retain) NSArray *routes;
 @property (nonatomic, retain) NSString *to;
 @property (nonatomic, retain) NSString *from;
 
