@@ -9,3 +9,4 @@ Uses these nice external libraries and helpers:
 * http://cocoawithlove.com/2008/10/using-libxml2-for-parsing-and-xpath.html for libxml2 HTML XPath support
 * http://code.google.com/p/google-toolbox-for-mac/ for GTMHTTPFetcher
 * http://regexkit.sourceforge.net/RegexKitLite/ for regular expressions
+* http://flycode.googlecode.com/svn/trunk/fmdb/ for an Objective C wrapper for sqlite
