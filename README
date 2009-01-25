@@ -2,7 +2,7 @@ This app is a wrapper for Transport For London's routeplanner, designed to save 
 
 It'll consult the GPS then grab the routes by screenscraping TfL's site at http://www.tflwap.gov.uk and present them nicely. TfL can't take a lat/lng as a departure place, so it has to use a sqlite database of sample postcodes to translate the GPS reading to a nearby postcode. It then walks through the tflwap forms submitting the right things.
 
-Uses these nice external libraries and helpers:
+This project is released under the MIT License - see the included file LICENSE. It uses these nice external libraries and helpers:
 
 * http://cocoawithlove.com/2008/10/using-libxml2-for-parsing-and-xpath.html for libxml2 HTML XPath support
 * http://code.google.com/p/google-toolbox-for-mac/ for GTMHTTPFetcher
