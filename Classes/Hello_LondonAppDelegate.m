@@ -8,7 +8,6 @@
 
 #import "Hello_LondonAppDelegate.h"
 #import "RootViewController.h"
-#import "Postcoder.h"
 
 @implementation Hello_LondonAppDelegate
 
@@ -21,15 +20,6 @@
 	// Configure and show the window
 	[window addSubview:[navigationController view]];
 	[window makeKeyAndVisible];
-	tfl = [[TfL alloc] init];
-	Postcoder *postcoder = [[Postcoder alloc] init];
-	NSString *postcode = [postcoder findPostcodeForLat:[NSNumber numberWithFloat:51.5] andLong:[NSNumber numberWithFloat:-0.01]];
-	NSLog(@"Postcode: %@", postcode);
-	[tfl planRouteFrom:postcode to:@"E8 1PE" withDelegate:self didSucceedSelector:@selector(gotRoute)];
-}
-
-- (void)gotRoute {
-	NSLog(@"Success!\n%@", tfl.routes);
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

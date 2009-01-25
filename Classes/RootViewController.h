@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "TfL.h"
 
 @interface RootViewController : UIViewController <CLLocationManagerDelegate> {
 	IBOutlet UILabel *latitudeLabel;
@@ -15,8 +16,10 @@
 	IBOutlet UILabel *accuracyLabel;
 	IBOutlet UILabel *postcodeLabel;
 	CLLocationManager *locationManager;
+	TfL *tfl;
 }
 
 @property (nonatomic,retain) CLLocationManager *locationManager;
+- (IBAction)planRoute: (id)sender;
 
 @end

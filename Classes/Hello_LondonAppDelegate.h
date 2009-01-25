@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TfL.h"
 
 @interface Hello_LondonAppDelegate : NSObject <UIApplicationDelegate> {
     
     UIWindow *window;
     UINavigationController *navigationController;
-	TfL *tfl;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

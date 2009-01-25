@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import "Hello_LondonAppDelegate.h"
 #import "Postcoder.h"
-
+#import "TfL.h"
 
 @implementation RootViewController
 
@@ -21,7 +21,7 @@
 	self.locationManager = [[[CLLocationManager alloc] init] autorelease]; 
 	self.locationManager.delegate = self; 
 	[self.locationManager startUpdatingLocation];
-	postcodeLabel.text = @"E8 1PE";
+	tfl = [[TfL alloc] init];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -38,9 +38,20 @@
 							   newLocation.coordinate.longitude]; 
 	accuracyLabel.text = [NSString stringWithFormat:@"Accuracy: %0.1f", 
 						   newLocation.horizontalAccuracy];
-	postcodeLabel.text = [NSString stringWithFormat:@"Postcode: %@", postcode];
+	postcodeLabel.text = [NSString stringWithFormat:@"%@", postcode];
 } 
 
+- (IBAction)planRoute: (id)sender {
+	[tfl planRouteFrom:postcodeLabel.text to:@"E8 1PE" withDelegate:self didSucceedSelector:@selector(gotRoute)];
+}
+
+- (void)gotRoute {
+	NSLog(@"Success!\n%@", tfl.routes);
+	
+	NSDictionary *route = [tfl.routes objectAtIndex:0];
+	NSURL *url = [ [ NSURL alloc ] initWithString: [route objectForKey:@"url"]];
+	[[UIApplication sharedApplication] openURL:url];
+}
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,6 +88,7 @@
 }
 
 - (void)dealloc {
+	[tfl release];
     [super dealloc];
 }
 

@@ -62,12 +62,14 @@
 		}
 		NSArray *details = [[content stringByReplacingOccurrencesOfRegex:@"[^0-9]*([0-9]+)[^0-9]*" 
 													   withString:@"$1-"] componentsSeparatedByRegex:@"-"];
-		[route setValue:[details objectAtIndex:0] forKey:@"leave"];
-		[route setValue:[details objectAtIndex:1] forKey:@"arrive"];
-		[route setValue:[details objectAtIndex:2] forKey:@"stops"];
-		[route setValue:[NSString stringWithFormat:@"http://www.tflwap.gov.uk%@",href] forKey:@"url"];
+		if([details count] >= 3) {
+			[route setValue:[details objectAtIndex:0] forKey:@"leave"];
+			[route setValue:[details objectAtIndex:1] forKey:@"arrive"];
+			[route setValue:[details objectAtIndex:2] forKey:@"stops"];
+			[route setValue:[NSString stringWithFormat:@"http://www.tflwap.gov.uk%@",href] forKey:@"url"];
 
-		[routes addObject:route];
+			[routes addObject:route];
+		}
 	}
 	[delegate performSelector:success];
 }
