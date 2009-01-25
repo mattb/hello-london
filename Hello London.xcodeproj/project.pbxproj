@@ -28,6 +28,7 @@
 		D9C1C0740F2C63A200F8064C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C1C06F0F2C63A200F8064C /* FMDatabaseAdditions.m */; };
 		D9C1C0750F2C63A200F8064C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C1C0710F2C63A200F8064C /* FMDatabase.m */; };
 		D9C1C0780F2C63DB00F8064C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C1C0770F2C63DB00F8064C /* libsqlite3.dylib */; };
+		D9C1C0C10F2C67C400F8064C /* postcodes.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D9C1C0C00F2C67C400F8064C /* postcodes.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		D9C1C0710F2C63A200F8064C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		D9C1C0720F2C63A200F8064C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		D9C1C0770F2C63DB00F8064C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D9C1C0C00F2C67C400F8064C /* postcodes.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = postcodes.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D9C1C0C00F2C67C400F8064C /* postcodes.sqlite */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -226,6 +229,7 @@
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
+				D9C1C0C10F2C67C400F8064C /* postcodes.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
