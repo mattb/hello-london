@@ -24,6 +24,11 @@
 	self.locationManager.delegate = self; 
 	[self.locationManager startUpdatingLocation];
 	tfl = [[TfL alloc] init];
+	NSString *homePostcode = [[NSUserDefaults standardUserDefaults] stringForKey:@"homePostcode"];
+	if(!homePostcode) {
+		homePostcode = @"E8 1PE";
+	}
+	homePostcodeText.text = homePostcode;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -49,6 +54,11 @@
 	addressLabel.text = @"";
 }
 
+- (IBAction)homePostcodeChanged: (id)sender {
+	NSLog(@"Saving new home.");
+	[[NSUserDefaults standardUserDefaults] setObject:homePostcodeText.text forKey:@"homePostcode"];
+}
+
 - (void)locationManager:(CLLocationManager *)manager 
 	didUpdateToLocation:(CLLocation *)newLocation 
 		   fromLocation:(CLLocation *)oldLocation { 
@@ -66,7 +76,7 @@
 }
 
 - (IBAction)planRoute: (id)sender {
-	[tfl planRouteFrom:postcodeLabel.text to:@"E8 1PE" withDelegate:self didSucceedSelector:@selector(gotRoute)];
+	[tfl planRouteFrom:postcodeLabel.text to:homePostcodeText.text withDelegate:self didSucceedSelector:@selector(gotRoute)];
 }
 
 - (void)gotRoute {

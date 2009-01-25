@@ -16,11 +16,13 @@
 	IBOutlet UILabel *accuracyLabel;
 	IBOutlet UILabel *postcodeLabel;
 	IBOutlet UILabel *addressLabel;
+	IBOutlet UITextField *homePostcodeText;
 	CLLocationManager *locationManager;
 	TfL *tfl;
 }
 
 @property (nonatomic,retain) CLLocationManager *locationManager;
 - (IBAction)planRoute: (id)sender;
+- (IBAction)homePostcodeChanged: (id)sender;
 
 @end
