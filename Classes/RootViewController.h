@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface RootViewController : UITableViewController {
+@interface RootViewController : UIViewController <CLLocationManagerDelegate> {
+	IBOutlet UILabel *latitudeLabel;
+	IBOutlet UILabel *longitudeLabel;
+	IBOutlet UILabel *accuracyLabel;
+	IBOutlet UILabel *postcodeLabel;
+	CLLocationManager *locationManager;
 }
+
+@property (nonatomic,retain) CLLocationManager *locationManager;
 
 @end
