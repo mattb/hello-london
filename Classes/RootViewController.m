@@ -10,6 +10,8 @@
 #import "Hello_LondonAppDelegate.h"
 #import "Postcoder.h"
 #import "TfL.h"
+#import "GTMHTTPFetcher.h"
+#import "RegexKitLite.h"
 
 @implementation RootViewController
 
@@ -26,6 +28,27 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)geocodeLat:(double)lat andLong:(double)lng {
+	NSString *url = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%f,%f&output=csv&oe=utf8&sensor=true&key=ABQIAAAASw_mpQsqmT0mJpSX2YojThTJQa0g3IQ9GZqIMmInSLzwtGDKaBT7rtzYiNX0yqsGcc-Lvo0V4u1_7w",lat,lng];
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+	GTMHTTPFetcher *myFetcher = [GTMHTTPFetcher httpFetcherWithRequest:request];
+	[myFetcher beginFetchWithDelegate:self
+					didFinishSelector:@selector(myFetcher:geocoded:)
+				      didFailSelector:@selector(myFetcher:geocodeFailed:)];
+}
+
+- (void)myFetcher:(GTMHTTPFetcher *)fetcher geocoded:(NSData *)retrievedData {
+	NSString *address = [[NSString alloc] initWithData:retrievedData encoding:NSUTF8StringEncoding];
+	addressLabel.text = [address stringByReplacingOccurrencesOfRegex:@"^.*\"(.+)\"$" 
+														  withString:@"$1"];
+	[address release];
+}
+
+- (void)myFetcher:(GTMHTTPFetcher *)fetcher geocodeFailed:(NSError *)error {
+	NSLog(@"Error: %@",error);
+	addressLabel.text = @"";
+}
+
 - (void)locationManager:(CLLocationManager *)manager 
 	didUpdateToLocation:(CLLocation *)newLocation 
 		   fromLocation:(CLLocation *)oldLocation { 
@@ -39,7 +62,8 @@
 	accuracyLabel.text = [NSString stringWithFormat:@"Accuracy: %0.1f", 
 						   newLocation.horizontalAccuracy];
 	postcodeLabel.text = [NSString stringWithFormat:@"%@", postcode];
-} 
+	[self geocodeLat:newLocation.coordinate.latitude andLong: newLocation.coordinate.longitude];
+}
 
 - (IBAction)planRoute: (id)sender {
 	[tfl planRouteFrom:postcodeLabel.text to:@"E8 1PE" withDelegate:self didSucceedSelector:@selector(gotRoute)];

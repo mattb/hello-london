@@ -90,7 +90,7 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="IBUIText">Postcode</string>
-						<object class="NSFont" key="IBUIFont">
+						<object class="NSFont" key="IBUIFont" id="88937275">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">1.700000e+01</double>
 							<int key="NSfFlags">16</int>
@@ -100,10 +100,25 @@
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">1.000000e+01</float>
 					</object>
+					<object class="IBUILabel" id="391836023">
+						<reference key="NSNextResponder" ref="50386618"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{20, 136}, {280, 21}}</string>
+						<reference key="NSSuperview" ref="50386618"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="IBUIText">Address</string>
+						<reference key="IBUIFont" ref="88937275"/>
+						<reference key="IBUITextColor" ref="200707162"/>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">1.000000e+01</float>
+					</object>
 					<object class="IBUIButton" id="279027572">
 						<reference key="NSNextResponder" ref="50386618"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 136}, {129, 37}}</string>
+						<string key="NSFrame">{{20, 165}, {129, 37}}</string>
 						<reference key="NSSuperview" ref="50386618"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -193,6 +208,14 @@
 					</object>
 					<int key="connectionID">27</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addressLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="391836023"/>
+					</object>
+					<int key="connectionID">29</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -225,6 +248,7 @@
 							<reference ref="279836995"/>
 							<reference ref="680211039"/>
 							<reference ref="275910266"/>
+							<reference ref="391836023"/>
 							<reference ref="279027572"/>
 						</object>
 						<reference key="parent" ref="360949347"/>
@@ -254,6 +278,11 @@
 						<reference key="object" ref="279027572"/>
 						<reference key="parent" ref="50386618"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">28</int>
+						<reference key="object" ref="391836023"/>
+						<reference key="parent" ref="50386618"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -269,12 +298,14 @@
 					<string>18.IBPluginDependency</string>
 					<string>19.IBPluginDependency</string>
 					<string>26.IBPluginDependency</string>
+					<string>28.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>RootViewController</string>
 					<string>UIResponder</string>
 					<string>{{409, 133}, {320, 460}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -303,7 +334,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">27</int>
+			<int key="maxID">29</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -320,12 +351,14 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>accuracyLabel</string>
+							<string>addressLabel</string>
 							<string>latitudeLabel</string>
 							<string>longitudeLabel</string>
 							<string>postcodeLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>

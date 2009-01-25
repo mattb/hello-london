@@ -15,6 +15,7 @@
 	IBOutlet UILabel *longitudeLabel;
 	IBOutlet UILabel *accuracyLabel;
 	IBOutlet UILabel *postcodeLabel;
+	IBOutlet UILabel *addressLabel;
 	CLLocationManager *locationManager;
 	TfL *tfl;
 }
