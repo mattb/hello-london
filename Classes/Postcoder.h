@@ -10,13 +10,20 @@
 //  so a better source would be great)
 
 #import <Foundation/Foundation.h>
-#import "GTMHTTPFetcher.h"
+#import "FMDatabase.h"
+
+// Bounding box for London as defined by Yahoo WOE ID 44418
+// http://where.yahooapis.com/v1/place/44418?appid=your_yahoo_appid_here
+#define LONDON_SOUTHWEST_LAT 51.261318
+#define LONDON_SOUTHWEST_LNG -0.50901
+#define LONDON_NORTHEAST_LAT 51.686031
+#define LONDON_NORTHEAST_LNG 0.28036
 
 @interface Postcoder : NSObject {
 	id delegate;
 	SEL success;
 }
 
-- (void)findPostcodeForLat:(NSString *)lat andLong:(NSString *)lng withDelegate:(id)successDelegate didSucceedSelector:(SEL)sel;
+- (NSString *)findPostcodeForLat:(NSNumber *)lat andLong:(NSNumber *)lng;
 
 @end

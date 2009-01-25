@@ -22,13 +22,10 @@
 	[window addSubview:[navigationController view]];
 	[window makeKeyAndVisible];
 	tfl = [[TfL alloc] init];
-	Postcoder *postcode = [[Postcoder alloc] init];
-	[postcode findPostcodeForLat:@"51.5" andLong:@"-0.01" withDelegate:self didSucceedSelector:@selector(gotPostcode:)];
-}
-
-- (void)gotPostcode:(NSString *)postcode {
-	NSLog(@"Success: %@", postcode);
-	[tfl planRouteFrom:postcode to:@"EC1Y 2BP" withDelegate:self didSucceedSelector:@selector(gotRoute)];
+	Postcoder *postcoder = [[Postcoder alloc] init];
+	NSString *postcode = [postcoder findPostcodeForLat:[NSNumber numberWithFloat:51.5] andLong:[NSNumber numberWithFloat:-0.01]];
+	NSLog(@"Postcode: %@", postcode);
+	[tfl planRouteFrom:postcode to:@"E8 1PE" withDelegate:self didSucceedSelector:@selector(gotRoute)];
 }
 
 - (void)gotRoute {
