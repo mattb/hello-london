@@ -24,6 +24,10 @@
 		D9440B620F2933D400E40C40 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9440B610F2933D400E40C40 /* libxml2.dylib */; };
 		D9440BA10F29398C00E40C40 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = D9440BA00F29398C00E40C40 /* RegexKitLite.m */; };
 		D9440BA80F293A3400E40C40 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9440BA70F293A3400E40C40 /* libicucore.dylib */; };
+		D9C1C0730F2C63A200F8064C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C1C06D0F2C63A200F8064C /* FMResultSet.m */; };
+		D9C1C0740F2C63A200F8064C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C1C06F0F2C63A200F8064C /* FMDatabaseAdditions.m */; };
+		D9C1C0750F2C63A200F8064C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C1C0710F2C63A200F8064C /* FMDatabase.m */; };
+		D9C1C0780F2C63DB00F8064C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C1C0770F2C63DB00F8064C /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +38,7 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E55F0DE3E45000AC0155 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
-		28A0AAE50D9B0CCF005BE974 /* Hello_London_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hello_London_Prefix.pch; sourceTree = "<group>"; };
+		28A0AAE50D9B0CCF005BE974 /* Hello_London_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hello_London_Prefix.pch; path = ../Hello_London_Prefix.pch; sourceTree = "<group>"; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
@@ -59,6 +63,13 @@
 		D9440B9F0F29398C00E40C40 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		D9440BA00F29398C00E40C40 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		D9440BA70F293A3400E40C40 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		D9C1C06D0F2C63A200F8064C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		D9C1C06E0F2C63A200F8064C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		D9C1C06F0F2C63A200F8064C /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		D9C1C0700F2C63A200F8064C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		D9C1C0710F2C63A200F8064C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		D9C1C0720F2C63A200F8064C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		D9C1C0770F2C63DB00F8064C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +82,7 @@
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				D9440B620F2933D400E40C40 /* libxml2.dylib in Frameworks */,
 				D9440BA80F293A3400E40C40 /* libicucore.dylib in Frameworks */,
+				D9C1C0780F2C63DB00F8064C /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +115,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				D9440AA00F292E5100E40C40 /* Google */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -116,6 +127,20 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D9C1C0770F2C63DB00F8064C /* libsqlite3.dylib */,
+				D9C1C06D0F2C63A200F8064C /* FMResultSet.m */,
+				D9C1C06E0F2C63A200F8064C /* FMResultSet.h */,
+				D9C1C06F0F2C63A200F8064C /* FMDatabaseAdditions.m */,
+				D9C1C0700F2C63A200F8064C /* FMDatabaseAdditions.h */,
+				D9C1C0710F2C63A200F8064C /* FMDatabase.m */,
+				D9C1C0720F2C63A200F8064C /* FMDatabase.h */,
+				D9440AC20F292EDE00E40C40 /* GTMGarbageCollection.h */,
+				D9440AC40F292EF200E40C40 /* GTMSystemVersion.m */,
+				D9440AC90F292F0800E40C40 /* GTMDebugSelectorValidation.h */,
+				D9440AC50F292EF200E40C40 /* GTMSystemVersion.h */,
+				D9440AAD0F292E6600E40C40 /* GTMHTTPFetcher.m */,
+				D9440AAE0F292E6600E40C40 /* GTMHTTPFetcher.h */,
+				D9440AAC0F292E5C00E40C40 /* GTMDefines.h */,
 				D9440BA70F293A3400E40C40 /* libicucore.dylib */,
 				D9440B9F0F29398C00E40C40 /* RegexKitLite.h */,
 				D9440BA00F29398C00E40C40 /* RegexKitLite.m */,
@@ -127,7 +152,7 @@
 				28A0AAE50D9B0CCF005BE974 /* Hello_London_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
-			name = "Other Sources";
+			path = "Other Sources";
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -148,20 +173,6 @@
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D9440AA00F292E5100E40C40 /* Google */ = {
-			isa = PBXGroup;
-			children = (
-				D9440AC20F292EDE00E40C40 /* GTMGarbageCollection.h */,
-				D9440AC40F292EF200E40C40 /* GTMSystemVersion.m */,
-				D9440AC90F292F0800E40C40 /* GTMDebugSelectorValidation.h */,
-				D9440AC50F292EF200E40C40 /* GTMSystemVersion.h */,
-				D9440AAD0F292E6600E40C40 /* GTMHTTPFetcher.m */,
-				D9440AAE0F292E6600E40C40 /* GTMHTTPFetcher.h */,
-				D9440AAC0F292E5C00E40C40 /* GTMDefines.h */,
-			);
-			name = Google;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +246,9 @@
 				D9440B440F29329200E40C40 /* NSString+URLEncoding.m in Sources */,
 				D9440B580F29334900E40C40 /* XPathQuery.m in Sources */,
 				D9440BA10F29398C00E40C40 /* RegexKitLite.m in Sources */,
+				D9C1C0730F2C63A200F8064C /* FMResultSet.m in Sources */,
+				D9C1C0740F2C63A200F8064C /* FMDatabaseAdditions.m in Sources */,
+				D9C1C0750F2C63A200F8064C /* FMDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
