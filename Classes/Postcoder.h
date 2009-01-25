@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FMDatabase.h"
+#import "FMDatabaseAdditions.h"
 
 // Bounding box for London as defined by Yahoo WOE ID 44418
 // http://where.yahooapis.com/v1/place/44418?appid=your_yahoo_appid_here

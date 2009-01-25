@@ -19,13 +19,8 @@
         NSLog(@"Could not open db.");
         return @"";
     }
-	NSString *postcode;
-	FMResultSet *rs = [db executeQuery:@"select postcode from postcodes order by ((lat-?)*(lat-?))+((lng-?)*(lng-?)) limit 1;", lat,lat,lng,lng];
-	while ([rs next]) {
-		postcode= [rs stringForColumn:@"postcode"];
-		NSLog(@"%@",postcode);
-    }
-	[rs close];
+	NSString *postcode = [db stringForQuery:@"select postcode from postcodes order by ((lat-?)*(lat-?))+((lng-?)*(lng-?)) limit 1;", lat,lat,lng,lng];
+	NSLog(@"%@",postcode);
 	[db close];
 
 	return postcode;
