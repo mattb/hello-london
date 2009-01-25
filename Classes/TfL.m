@@ -16,12 +16,15 @@
 @implementation TfL
 
 @synthesize routes;
+@synthesize to;
+@synthesize from;
+
 - (void)planRouteFrom:(NSString *)fromPostcode to:(NSString *)toPostcode withDelegate:(id)successDelegate didSucceedSelector:(SEL)sel {
-	from = fromPostcode;
-	to = toPostcode;
+	self.from = fromPostcode;
+	self.to = toPostcode;
 	delegate = successDelegate;
 	success = sel;
-	NSString *url = [NSString stringWithFormat:@"http://www.tflwap.gov.uk/planner/fromValidate?from=%@", [from URLEncodedString]];
+	NSString *url = [NSString stringWithFormat:@"http://www.tflwap.gov.uk/planner/fromValidate?from=%@", [self.from URLEncodedString]];
 	NSLog(@"URL: %@", url);
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 	myFetcher = [GTMHTTPFetcher httpFetcherWithRequest:request];
@@ -37,7 +40,7 @@
 	if([action count] == 1) {
 		NSString *path = [((NSDictionary *)[action objectAtIndex:0]) objectForKey:@"nodeContent"];
 		NSLog(@"Path: %@", path);
-		NSString *url = [NSString stringWithFormat:@"http://www.tflwap.gov.uk%@?to=%@", path, [to URLEncodedString]];
+		NSString *url = [NSString stringWithFormat:@"http://www.tflwap.gov.uk%@?to=%@", path, [self.to URLEncodedString]];
 		NSLog(@"URL: %@", url);
 		NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 		myFetcher = [GTMHTTPFetcher httpFetcherWithRequest:request];

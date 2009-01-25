@@ -21,7 +21,8 @@
     [super viewDidLoad];
 	
 	self.locationManager = [[[CLLocationManager alloc] init] autorelease]; 
-	self.locationManager.delegate = self; 
+	self.locationManager.delegate = self;
+	self.locationManager.distanceFilter = 100.0f;
 	[self.locationManager startUpdatingLocation];
 	tfl = [[TfL alloc] init];
 	NSString *homePostcode = [[NSUserDefaults standardUserDefaults] stringForKey:@"homePostcode"];
