@@ -31,10 +31,12 @@
 	[myFetcher beginFetchWithDelegate:self
 					didFinishSelector:@selector(myFetcher:finishedStep1WithData:)
 				      didFailSelector:@selector(myFetcher:failedWithError:)];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (void)myFetcher:(GTMHTTPFetcher *)fetcher finishedStep1WithData:(NSData *)retrievedData {
 	NSLog(@"Success!");
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	NSString *xpath = @"//form[@id='locationForm']/@action";
 	NSArray *action = PerformHTMLXPathQuery(retrievedData, xpath);
 	if([action count] == 1) {
@@ -47,12 +49,14 @@
 		[myFetcher beginFetchWithDelegate:self
 						didFinishSelector:@selector(myFetcher:finishedStep2WithData:)
 						  didFailSelector:@selector(myFetcher:failedWithError:)];
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES; 
 	} else {
 		NSLog(@"Screenscrape failed");
 	}
 }
 
 - (void)myFetcher:(GTMHTTPFetcher *)fetcher finishedStep2WithData:(NSData *)retrievedData {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO; 
 	NSString *xpath = @"//a[starts-with(@href,'/planner/details')]";
 	NSArray *detailNodes = PerformHTMLXPathQuery(retrievedData, xpath);
 	routes = [NSMutableArray array];
@@ -79,6 +83,7 @@
 
 - (void)myFetcher:(GTMHTTPFetcher *)fetcher failedWithError:(NSError *)error {
 	NSLog(@"Error: %@",error);
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO; 
 }
 
 

@@ -60,6 +60,43 @@
 	[[NSUserDefaults standardUserDefaults] setObject:homePostcodeText.text forKey:@"homePostcode"];
 }
 
+- (IBAction)pickPostcodeFromAddressbook: (id)sender {
+	ABPeoplePickerNavigationController *ab = [[ABPeoplePickerNavigationController alloc] init]; 
+	ab.displayedProperties = [NSArray arrayWithObject:[NSNumber numberWithInt:kABPersonAddressProperty]];
+	[ab setPeoplePickerDelegate:self]; 
+	[self presentModalViewController:ab animated:YES]; 	
+}
+
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+	
+    [self dismissModalViewControllerAnimated:YES];
+	ABMultiValueRef streets = ABRecordCopyValue(person, kABPersonAddressProperty);
+	if (ABMultiValueGetCount(streets) > 0) {
+		CFDictionaryRef dict = ABMultiValueCopyValueAtIndex(streets, 0);
+		if(dict) {
+			NSString *postcode = [(NSString *)CFDictionaryGetValue(dict, kABPersonAddressZIPKey) copy];
+			homePostcodeText.text = postcode;
+			CFRelease(dict);
+		}
+		CFRelease(streets);
+	}
+
+    return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person
+                                property:(ABPropertyID)property
+                              identifier:(ABMultiValueIdentifier)identifier{
+    return NO;
+}
+
 - (void)locationManager:(CLLocationManager *)manager 
 	didUpdateToLocation:(CLLocation *)newLocation 
 		   fromLocation:(CLLocation *)oldLocation { 
@@ -77,6 +114,7 @@
 }
 
 - (IBAction)planRoute: (id)sender {
+	[sender setEnabled:NO];
 	[tfl planRouteFrom:postcodeLabel.text to:homePostcodeText.text withDelegate:self didSucceedSelector:@selector(gotRoute)];
 }
 
